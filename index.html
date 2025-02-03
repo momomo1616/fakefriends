@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Friends</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="boom-sound" src="boom.mp3"></audio>
+</head>
+<body>
+    <div class="container">
+        <h1>Fake Friends – Verrat hat viele Gesichter</h1>
+
+        <div class="friend" id="enes">
+            <img src="enes.jpg" alt="Enes" class="creepy-image">
+            <p class="description">Enes – der typische falsche Freund. Immer nett, wenn er etwas braucht. Immer freundlich, solange du nützlich bist. Doch hinter deinem Rücken? Ein Verräter. Ein Schatten, der nur in deinem Licht existiert.</p>
+        </div>
+
+        <div class="friend" id="mustafa">
+            <img src="mustafa.jpg" alt="Mustafa" class="creepy-image">
+            <p class="description">Mustafa – ein Meister der Illusion. Ein Freund, solange es ihm passt. Doch wenn du fällst, ist er der Erste, der lacht. Ein falsches Lächeln, eine noch falschere Seele.</p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            let sound = document.getElementById("boom-sound");
+            let images = document.querySelectorAll(".creepy-image");
+
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    img.style.opacity = "1";
+                    img.style.transform = "scale(1)";
+                    sound.play();
+                }, index * 2000);
+            });
+        };
+    </script>
+</body>
+</html>
