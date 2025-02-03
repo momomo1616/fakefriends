@@ -8,33 +8,42 @@
     <audio id="boom-sound" src="boom.mp3"></audio>
 </head>
 <body>
+
     <div class="container">
         <h1>Fake Friends – Verrat hat viele Gesichter</h1>
 
-        <div class="friend" id="enes">
-            <img src="enes.jpg" alt="Enes" class="creepy-image">
-            <p class="description">Enes – der typische falsche Freund. Immer nett, wenn er etwas braucht. Immer freundlich, solange du nützlich bist. Doch hinter deinem Rücken? Ein Verräter. Ein Schatten, der nur in deinem Licht existiert.</p>
-        </div>
+        <!-- Button zum Anzeigen der Fake-Freunde -->
+        <button id="reveal-button">VERRÄTER</button>
 
-        <div class="friend" id="mustafa">
-            <img src="mustafa.jpg" alt="Mustafa" class="creepy-image">
-            <p class="description">Mustafa – ein Meister der Illusion. Ein Freund, solange es ihm passt. Doch wenn du fällst, ist er der Erste, der lacht. Ein falsches Lächeln, eine noch falschere Seele.</p>
+        <!-- Bereich für die Fake-Freunde (zuerst versteckt) -->
+        <div id="fake-friends" class="hidden">
+            <div class="friend">
+                <img src="enes.jpg" alt="Enes">
+                <p>Enes – der typische falsche Freund. Immer nett, wenn er etwas braucht. Immer freundlich, solange du nützlich bist. Doch hinter deinem Rücken? Ein Verräter.</p>
+            </div>
+
+            <div class="friend">
+                <img src="mustafa.jpg" alt="Mustafa">
+                <p>Mustafa – ein Meister der Illusion. Ein Freund, solange es ihm passt. Doch wenn du fällst, ist er der Erste, der lacht.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        window.onload = function() {
+        document.getElementById("reveal-button").addEventListener("click", function() {
             let sound = document.getElementById("boom-sound");
-            let images = document.querySelectorAll(".creepy-image");
+            let friendsSection = document.getElementById("fake-friends");
 
-            images.forEach((img, index) => {
-                setTimeout(() => {
-                    img.style.opacity = "1";
-                    img.style.transform = "scale(1)";
-                    sound.play();
-                }, index * 2000);
-            });
-        };
+            // Zeige die Fake-Freunde an
+            friendsSection.style.display = "flex";
+
+            // Spiele den Boom-Sound ab
+            sound.play();
+
+            // Verstecke den Button nach dem Klicken
+            this.style.display = "none";
+        });
     </script>
+
 </body>
 </html>
